@@ -27,12 +27,12 @@ export function MenuPreview() {
           >
             Speisekarte
           </h2>
-          <div className="flex flex-wrap justify-center gap-4 text-muted-foreground font-serif">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 text-muted-foreground font-serif text-sm sm:text-base">
             {categories.map((cat, index) => (
-              <span key={cat}>
+              <span key={cat} className="whitespace-nowrap">
                 {cat}
                 {index < categories.length - 1 && (
-                  <span className="ml-4 text-gold">/</span>
+                  <span className="ml-2 sm:ml-4 text-gold">/</span>
                 )}
               </span>
             ))}
@@ -58,7 +58,7 @@ export function MenuPreview() {
           </motion.div>
 
           {/* Menu Items Column */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {featuredDishes.map((dish, index) => (
               <motion.div
                 key={dish.id}
@@ -68,22 +68,22 @@ export function MenuPreview() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="flex justify-between items-start gap-4 py-4 border-b border-border">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-1">
-                      <h3 className="font-display text-xl group-hover:text-gold transition-colors">
+                <div className="flex justify-between items-start gap-3 sm:gap-4 py-4 border-b border-border">
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1 flex-wrap">
+                      <h3 className="font-display text-lg sm:text-xl group-hover:text-gold transition-colors">
                         {dish.name}
                       </h3>
                       {dish.vegetarian && (
-                        <Leaf className="w-4 h-4 text-green-600" />
+                        <Leaf className="w-4 h-4 text-green-600 shrink-0" />
                       )}
-                      {dish.spicy && <Flame className="w-4 h-4 text-red-500" />}
+                      {dish.spicy && <Flame className="w-4 h-4 text-red-500 shrink-0" />}
                     </div>
                     <p className="font-serif text-sm text-muted-foreground">
                       {dish.description}
                     </p>
                   </div>
-                  <span className="font-display text-lg text-gold whitespace-nowrap">
+                  <span className="font-display text-base sm:text-lg text-gold whitespace-nowrap shrink-0">
                     {dish.price}
                   </span>
                 </div>

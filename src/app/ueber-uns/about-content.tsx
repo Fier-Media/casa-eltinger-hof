@@ -110,7 +110,7 @@ export function AboutPageContent() {
               className="relative"
             >
               <div
-                className="aspect-[4/5] bg-cover bg-center"
+                className="aspect-[4/5] bg-cover bg-center rounded-lg overflow-hidden"
                 style={{
                   backgroundImage: "url('/images/placeholder.jpeg')",
                 }}
@@ -171,17 +171,17 @@ export function AboutPageContent() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="flex gap-8 mb-12 last:mb-0"
+                className="flex gap-4 sm:gap-8 mb-12 last:mb-0"
               >
-                <div className="flex-shrink-0 w-24 text-right">
-                  <span className="font-display text-2xl text-gold">
+                <div className="flex-shrink-0 w-16 sm:w-24 text-right">
+                  <span className="font-display text-xl sm:text-2xl text-gold">
                     {item.year}
                   </span>
                 </div>
-                <div className="relative flex-1 pl-8 border-l-2 border-gold pb-8 last:pb-0">
+                <div className="relative flex-1 pl-4 sm:pl-8 border-l-2 border-gold pb-8 last:pb-0">
                   <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gold" />
-                  <h3 className="font-display text-xl mb-2">{item.title}</h3>
-                  <p className="font-serif text-muted-foreground">
+                  <h3 className="font-display text-lg sm:text-xl mb-2">{item.title}</h3>
+                  <p className="font-serif text-sm sm:text-base text-muted-foreground">
                     {item.description}
                   </p>
                 </div>
@@ -213,7 +213,7 @@ export function AboutPageContent() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
             {[
               {
                 role: "Küche",
@@ -240,12 +240,12 @@ export function AboutPageContent() {
                 className="text-center"
               >
                 <div
-                  className="aspect-square bg-cover bg-center mb-6"
+                  className="aspect-square bg-cover bg-center mb-6 rounded-lg overflow-hidden"
                   style={{
                     backgroundImage: `url('${member.image}')`,
                   }}
                 />
-                <h3 className="font-display text-xl mb-2">{member.role}</h3>
+                <h3 className="font-display text-lg sm:text-xl mb-2">{member.role}</h3>
                 <p className="font-serif text-sm text-muted-foreground">
                   {member.description}
                 </p>

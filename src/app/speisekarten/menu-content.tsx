@@ -47,22 +47,24 @@ export function MenuPageContent() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-2 lg:gap-4 mb-16"
+            className="mb-16 overflow-x-auto -mx-4 px-4 lg:mx-0 lg:px-0"
           >
-            {allCategories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setActiveCategory(category.id)}
-                className={cn(
-                  "px-4 py-2 font-serif text-sm tracking-wide transition-all",
-                  activeCategory === category.id
-                    ? "bg-foreground text-white"
-                    : "bg-transparent text-foreground hover:bg-foreground/5"
-                )}
-              >
-                {category.name}
-              </button>
-            ))}
+            <div className="flex flex-nowrap lg:flex-wrap justify-start lg:justify-center gap-2 lg:gap-4 min-w-max lg:min-w-0">
+              {allCategories.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => setActiveCategory(category.id)}
+                  className={cn(
+                    "px-4 py-2 font-serif text-sm tracking-wide transition-all whitespace-nowrap shrink-0",
+                    activeCategory === category.id
+                      ? "bg-foreground text-white"
+                      : "bg-transparent text-foreground hover:bg-foreground/5"
+                  )}
+                >
+                  {category.name}
+                </button>
+              ))}
+            </div>
           </motion.div>
 
           {/* Menu Items */}
@@ -96,32 +98,32 @@ export function MenuPageContent() {
                       transition={{ duration: 0.3, delay: index * 0.05 }}
                       className="group border-b border-border pb-6"
                     >
-                      <div className="flex justify-between items-start gap-4">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-2">
-                            <h3 className="font-display text-xl group-hover:text-gold transition-colors">
+                      <div className="flex justify-between items-start gap-3 sm:gap-4">
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 mb-2 flex-wrap">
+                            <h3 className="font-display text-lg sm:text-xl group-hover:text-gold transition-colors">
                               {item.name}
                             </h3>
                             {item.popular && (
-                              <Star className="w-4 h-4 text-gold fill-gold" />
+                              <Star className="w-4 h-4 text-gold fill-gold shrink-0" />
                             )}
                             {item.vegetarian && (
-                              <Leaf className="w-4 h-4 text-green-600" />
+                              <Leaf className="w-4 h-4 text-green-600 shrink-0" />
                             )}
                             {item.vegan && (
-                              <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded">
+                              <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded shrink-0">
                                 Vegan
                               </span>
                             )}
                             {item.spicy && (
-                              <Flame className="w-4 h-4 text-red-500" />
+                              <Flame className="w-4 h-4 text-red-500 shrink-0" />
                             )}
                           </div>
                           <p className="font-serif text-sm text-muted-foreground">
                             {item.description}
                           </p>
                         </div>
-                        <span className="font-display text-xl text-gold whitespace-nowrap">
+                        <span className="font-display text-lg sm:text-xl text-gold whitespace-nowrap shrink-0">
                           {item.price}
                         </span>
                       </div>

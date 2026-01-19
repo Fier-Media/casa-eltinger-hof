@@ -48,28 +48,30 @@ export function GalleryPageContent() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-2 lg:gap-4 mb-12"
+            className="mb-12 overflow-x-auto -mx-4 px-4 lg:mx-0 lg:px-0"
           >
-            {galleryCategories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setActiveCategory(category.id)}
-                className={cn(
-                  "px-4 py-2 font-serif text-sm tracking-wide transition-all",
-                  activeCategory === category.id
-                    ? "bg-foreground text-white"
-                    : "bg-transparent text-foreground hover:bg-foreground/5"
-                )}
-              >
-                {category.name}
-              </button>
-            ))}
+            <div className="flex flex-nowrap lg:flex-wrap justify-start lg:justify-center gap-2 lg:gap-4 min-w-max lg:min-w-0">
+              {galleryCategories.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => setActiveCategory(category.id)}
+                  className={cn(
+                    "px-4 py-2 font-serif text-sm tracking-wide transition-all whitespace-nowrap shrink-0",
+                    activeCategory === category.id
+                      ? "bg-foreground text-white"
+                      : "bg-transparent text-foreground hover:bg-foreground/5"
+                  )}
+                >
+                  {category.name}
+                </button>
+              ))}
+            </div>
           </motion.div>
 
           {/* Image Grid */}
           <motion.div
             layout
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4"
           >
             <AnimatePresence mode="popLayout">
               {filteredImages.map((image, index) => (

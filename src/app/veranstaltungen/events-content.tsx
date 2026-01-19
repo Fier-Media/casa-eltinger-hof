@@ -83,7 +83,7 @@ export function EventsPageContent() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {eventTypes.map((event, index) => (
               <motion.div
                 key={event.id}
@@ -102,7 +102,7 @@ export function EventsPageContent() {
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
                 </div>
-                <h3 className="font-display text-2xl mb-2">{event.name}</h3>
+                <h3 className="font-display text-xl sm:text-2xl mb-2">{event.name}</h3>
                 <p className="font-serif text-sm text-muted-foreground mb-4">
                   {event.description}
                 </p>
@@ -110,9 +110,9 @@ export function EventsPageContent() {
                   {event.features.map((feature) => (
                     <li
                       key={feature}
-                      className="flex items-center gap-2 font-serif text-sm"
+                      className="flex items-start gap-2 font-serif text-sm"
                     >
-                      <Check className="w-4 h-4 text-gold" />
+                      <Check className="w-4 h-4 text-gold shrink-0 mt-0.5" />
                       <span>{feature}</span>
                     </li>
                   ))}

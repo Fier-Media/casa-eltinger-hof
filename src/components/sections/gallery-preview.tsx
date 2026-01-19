@@ -30,7 +30,7 @@ export function GalleryPreview() {
         </motion.div>
 
         {/* Gallery Grid - Masonry Style */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
           {featuredGalleryImages.map((image, index) => (
             <motion.div
               key={image.id}
