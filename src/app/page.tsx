@@ -1,0 +1,34 @@
+import { HeroSection } from "@/components/sections/hero-section";
+import { AboutSection } from "@/components/sections/about-section";
+import { MenuPreview } from "@/components/sections/menu-preview";
+import { EventsPreview } from "@/components/sections/events-preview";
+import { GalleryPreview } from "@/components/sections/gallery-preview";
+import { NewsletterSection } from "@/components/sections/newsletter-section";
+import { ContactSection } from "@/components/sections/contact-section";
+
+export default function HomePage() {
+  return (
+    <>
+      {/* Hero Section - Fullscreen with background image */}
+      <HeroSection />
+
+      {/* About Preview Section */}
+      <AboutSection />
+
+      {/* Menu Preview Section */}
+      <MenuPreview />
+
+      {/* Events Preview Section */}
+      <EventsPreview />
+
+      {/* Gallery Preview Section */}
+      <GalleryPreview />
+
+      {/* Newsletter & WhatsApp Section */}
+      <NewsletterSection />
+
+      {/* Contact & Location Section */}
+      <ContactSection />
+    </>
+  );
+}
