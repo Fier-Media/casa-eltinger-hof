@@ -14,7 +14,7 @@ const iconMap = {
 
 export function AboutSection() {
   return (
-    <section className="py-24 lg:py-32 bg-cream">
+    <section className="py-24 lg:py-32 bg-section">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Image Side */}
@@ -29,7 +29,7 @@ export function AboutSection() {
               <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{
-                  backgroundImage: "url('/images/restaurant-interior.jpg')",
+                  backgroundImage: "url('/images/placeholder.jpeg')",
                 }}
               />
             </div>

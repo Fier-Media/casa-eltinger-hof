@@ -7,7 +7,7 @@ import { siteConfig, contactInfo, openingHours } from "@/lib/data/content";
 
 export function ContactSection() {
   return (
-    <section className="py-24 lg:py-32 bg-cream">
+    <section className="py-24 lg:py-32 bg-section">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -159,7 +159,7 @@ export function ContactSection() {
               <Button
                 asChild
                 size="lg"
-                className="w-full sm:w-auto bg-gold hover:bg-gold-light text-foreground font-serif tracking-wide"
+                className="w-full sm:w-auto font-serif tracking-wide"
               >
                 <a href={siteConfig.links.phone}>Jetzt reservieren</a>
               </Button>

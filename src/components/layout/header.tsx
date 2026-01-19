@@ -2,11 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { navigationItems, siteConfig, contactInfo } from "@/lib/data/content";
 import { cn } from "@/lib/utils";
 
@@ -31,7 +32,7 @@ export function Header() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         isScrolled || !isHomePage
-          ? "bg-white/95 backdrop-blur-md shadow-sm"
+          ? "bg-header backdrop-blur-md shadow-sm"
           : "bg-transparent"
       )}
     >
@@ -52,15 +53,25 @@ export function Header() {
                 <span className="sr-only">Menü öffnen</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-full sm:w-[400px] p-0">
-              <div className="flex flex-col h-full bg-cream">
+            <SheetContent side="left" className="w-full max-w-full sm:max-w-[400px] p-0">
+              <SheetTitle className="sr-only">Navigationsmenü</SheetTitle>
+              <SheetDescription className="sr-only">
+                Hauptnavigation mit Links zu allen Seiten
+              </SheetDescription>
+              <div className="flex flex-col h-full bg-header">
                 <div className="flex items-center justify-between p-6 border-b border-border">
                   <Link
                     href="/"
-                    className="font-display text-2xl text-foreground"
+                    className="flex items-center"
                     onClick={() => setIsOpen(false)}
                   >
-                    {siteConfig.name}
+                    <Image
+                      src="/images/logo.svg"
+                      alt={siteConfig.name}
+                      width={150}
+                      height={40}
+                      className="h-10 w-auto transition-all"
+                    />
                   </Link>
                 </div>
                 <nav className="flex-1 p-6">
@@ -104,12 +115,19 @@ export function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className={cn(
-              "font-display text-xl lg:text-2xl tracking-wide transition-colors",
-              isScrolled || !isHomePage ? "text-foreground" : "text-white"
-            )}
+            className="flex items-center transition-opacity hover:opacity-80"
           >
-            {siteConfig.name}
+            <Image
+              src="/images/logo.svg"
+              alt={siteConfig.name}
+              width={180}
+              height={50}
+              className={cn(
+                "h-12 lg:h-14 w-auto transition-all duration-500",
+                isScrolled || !isHomePage ? "" : "brightness-0 invert"
+              )}
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

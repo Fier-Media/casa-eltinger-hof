@@ -5,6 +5,13 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { siteConfig, contactInfo } from "@/lib/data/content";
 
+const cormorantGaramond = Cormorant_Garamond({
+  variable: "--font-cormorant-garamond",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
   subsets: ["latin"],
@@ -85,7 +92,7 @@ function JsonLd() {
     "@context": "https://schema.org",
     "@type": "Restaurant",
     name: siteConfig.name,
-    image: `${siteConfig.url}/images/restaurant-exterior.jpg`,
+    image: `${siteConfig.url}/images/opner Image#001.jpeg`,
     "@id": siteConfig.url,
     url: siteConfig.url,
     telephone: contactInfo.phoneFormatted,
@@ -152,12 +159,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de">
+    <html lang="de" className="scroll-smooth">
       <head>
         <JsonLd />
       </head>
       <body
-        className={`${cormorant.variable} ${italiana.variable} font-serif antialiased`}
+        className={`${cormorant.variable} ${cormorantGaramond.variable} ${italiana.variable} font-serif antialiased`}
       >
         <Header />
         <main className="min-h-screen">{children}</main>

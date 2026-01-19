@@ -8,7 +8,7 @@ import { featuredGalleryImages } from "@/lib/data/gallery";
 
 export function GalleryPreview() {
   return (
-    <section className="py-24 lg:py-32 bg-cream">
+    <section className="py-24 lg:py-32 bg-section">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <motion.div

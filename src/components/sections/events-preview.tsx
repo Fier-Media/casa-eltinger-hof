@@ -10,7 +10,7 @@ export function EventsPreview() {
   const featuredEvents = eventTypes.slice(0, 3);
 
   return (
-    <section className="py-24 lg:py-32 bg-foreground text-white">
+    <section className="py-24 lg:py-32 bg-section">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -21,12 +21,12 @@ export function EventsPreview() {
           className="text-center mb-16"
         >
           <h2
-            className="font-display text-5xl lg:text-6xl xl:text-7xl mb-4 text-white"
+            className="font-display text-5xl lg:text-6xl xl:text-7xl mb-4"
             style={{ fontStyle: "italic" }}
           >
             Veranstaltungen
           </h2>
-          <p className="font-serif text-lg text-white/70 max-w-2xl mx-auto">
+          <p className="font-serif text-lg text-muted-foreground max-w-2xl mx-auto">
             Feiern Sie Ihre besonderen Momente bei uns. Von romantischen Abenden
             bis zu großen Festen – wir machen jeden Anlass unvergesslich.
           </p>
@@ -74,7 +74,7 @@ export function EventsPreview() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-white/5 backdrop-blur-sm p-8 lg:p-12 rounded-sm"
+            className="bg-white/50 backdrop-blur-sm p-8 lg:p-12 rounded-sm border border-border"
           >
             <h3 className="font-display text-2xl mb-8 flex items-center gap-3">
               <Calendar className="w-6 h-6 text-gold" />
@@ -88,7 +88,7 @@ export function EventsPreview() {
                 >
                   <p className="text-gold font-serif text-sm mb-1">{event.date}</p>
                   <h4 className="font-display text-lg mb-1">{event.title}</h4>
-                  <p className="font-serif text-sm text-white/60">{event.time}</p>
+                  <p className="font-serif text-sm text-muted-foreground">{event.time}</p>
                 </div>
               ))}
             </div>
@@ -106,7 +106,7 @@ export function EventsPreview() {
           <Button
             asChild
             size="lg"
-            className="bg-gold hover:bg-gold-light text-foreground font-serif tracking-wide group"
+            className="font-serif tracking-wide group"
           >
             <Link href="/veranstaltungen">
               Alle Veranstaltungen

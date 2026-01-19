@@ -4,7 +4,7 @@ export const siteConfig = {
   name: "Casa Eltinger Hof",
   description: "Mediterranes Restaurant in Leonberg - Pizza, Pasta und mediterrane Gerichte",
   url: "https://casa-eltinger-hof.de",
-  ogImage: "/images/og-image.jpg",
+  ogImage: "/images/opner Image#001.jpeg",
   links: {
     whatsapp: "https://wa.me/4971523066485",
     phone: "tel:+4971523066485",

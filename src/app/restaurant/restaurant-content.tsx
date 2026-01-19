@@ -50,7 +50,7 @@ export function RestaurantPageContent() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/images/restaurant-exterior.jpg')",
+            backgroundImage: "url('/images/placeholder.jpeg')",
           }}
         />
         <div className="absolute inset-0 bg-black/50" />
@@ -125,18 +125,20 @@ export function RestaurantPageContent() {
             >
               <div className="grid grid-cols-2 gap-4">
                 <div
-                  className="aspect-[3/4] bg-cover bg-center"
+                  className="aspect-[3/4] bg-cover bg-center rounded-lg overflow-hidden"
                   style={{
-                    backgroundImage: "url('/images/restaurant-1.jpg')",
+                    backgroundImage: "url('/images/placeholder.jpeg')",
                   }}
                 />
                 <div
-                  className="aspect-[3/4] bg-cover bg-center mt-8"
+                  className="aspect-[3/4] bg-cover bg-center rounded-lg overflow-hidden mt-8"
                   style={{
-                    backgroundImage: "url('/images/restaurant-2.jpg')",
+                    backgroundImage: "url('/images/placeholder.jpeg')",
                   }}
                 />
               </div>
+              {/* Decorative Element */}
+              <div className="absolute -bottom-6 -left-6 w-48 h-48 border-2 border-gold -z-10" />
             </motion.div>
           </div>
         </div>
@@ -217,7 +219,7 @@ export function RestaurantPageContent() {
                 <div
                   className="w-full h-full bg-cover bg-center hover:scale-110 transition-transform duration-700"
                   style={{
-                    backgroundImage: `url('/images/gallery/restaurant-${num}.jpg')`,
+                    backgroundImage: `url('/images/placeholder.jpeg')`,
                   }}
                 />
               </motion.div>

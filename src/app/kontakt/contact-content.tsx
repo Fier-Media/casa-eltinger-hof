@@ -180,7 +180,7 @@ export function ContactPageContent() {
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full sm:w-auto bg-gold hover:bg-gold-light text-foreground font-serif tracking-wide"
+                    className="w-full sm:w-auto font-serif tracking-wide"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? "Wird gesendet..." : "Nachricht senden"}

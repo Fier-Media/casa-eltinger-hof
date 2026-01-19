@@ -23,7 +23,7 @@ export const eventTypes: EventType[] = [
     id: "hochzeit",
     name: "Hochzeiten",
     description: "Feiern Sie Ihren schönsten Tag mit uns. Unser Saal bietet den perfekten Rahmen für Ihre Hochzeitsfeier mit exquisitem italienischem Catering.",
-    image: "/images/events/hochzeit.jpg",
+    image: "/images/placeholder.jpeg",
     features: [
       "Bis zu 80 Personen",
       "Individuelle Menügestaltung",
@@ -36,7 +36,7 @@ export const eventTypes: EventType[] = [
     id: "geburtstag",
     name: "Geburtstagsfeiern",
     description: "Ob runder Geburtstag oder gemütliches Familientreffen – wir gestalten Ihren besonderen Tag unvergesslich.",
-    image: "/images/events/geburtstag.jpg",
+    image: "/images/placeholder.jpeg",
     features: [
       "Flexible Gruppengröße",
       "Buffet oder Menü",
@@ -49,7 +49,7 @@ export const eventTypes: EventType[] = [
     id: "firmenfeier",
     name: "Firmenfeiern",
     description: "Weihnachtsfeier, Teambuilding oder Geschäftsessen – professionelle Atmosphäre mit mediterranem Flair.",
-    image: "/images/events/firmenfeier.jpg",
+    image: "/images/placeholder.jpeg",
     features: [
       "Separate Räumlichkeiten",
       "Technik für Präsentationen",
@@ -62,7 +62,7 @@ export const eventTypes: EventType[] = [
     id: "trauerfeier",
     name: "Trauerfeiern",
     description: "In schweren Stunden sind wir diskret an Ihrer Seite und sorgen für einen würdevollen Rahmen.",
-    image: "/images/events/trauerfeier.jpg",
+    image: "/images/placeholder.jpeg",
     features: [
       "Einfühlsame Betreuung",
       "Stilles Ambiente",
@@ -75,7 +75,7 @@ export const eventTypes: EventType[] = [
     id: "taufe",
     name: "Taufe & Kommunion",
     description: "Feiern Sie kirchliche Feste in familiärer Atmosphäre mit köstlichen mediterranen Speisen.",
-    image: "/images/events/taufe.jpg",
+    image: "/images/placeholder.jpeg",
     features: [
       "Familienfreundlich",
       "Flexible Menüs",
@@ -88,7 +88,7 @@ export const eventTypes: EventType[] = [
     id: "romantik",
     name: "Romantischer Abend",
     description: "Überraschen Sie Ihren Lieblingsmenschen mit einem unvergesslichen Dinner bei Kerzenschein.",
-    image: "/images/events/romantik.jpg",
+    image: "/images/placeholder.jpeg",
     features: [
       "Candlelight Dinner",
       "Spezielle Menüs",
@@ -106,7 +106,7 @@ export const upcomingEvents: UpcomingEvent[] = [
     date: "14. Februar 2026",
     time: "ab 18:00 Uhr",
     description: "Romantisches 4-Gänge-Menü für Verliebte mit Live-Musik",
-    image: "/images/events/valentinstag.jpg",
+    image: "/images/placeholder.jpeg",
   },
   {
     id: "ostern",
@@ -114,7 +114,7 @@ export const upcomingEvents: UpcomingEvent[] = [
     date: "5. April 2026",
     time: "10:00 - 14:00 Uhr",
     description: "Festliches Brunch-Buffet mit italienischen Spezialitäten",
-    image: "/images/events/ostern.jpg",
+    image: "/images/placeholder.jpeg",
   },
   {
     id: "weinprobe",
@@ -122,7 +122,7 @@ export const upcomingEvents: UpcomingEvent[] = [
     date: "21. März 2026",
     time: "19:00 Uhr",
     description: "6 erlesene Weine mit passenden Antipasti",
-    image: "/images/events/weinprobe.jpg",
+    image: "/images/placeholder.jpeg",
   },
 ];
 

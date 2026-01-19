@@ -11,7 +11,7 @@ export function MenuPreview() {
   const categories = menuCategories.slice(0, 5).map((cat) => cat.name);
 
   return (
-    <section className="py-24 lg:py-32 bg-white">
+    <section className="py-24 lg:py-32 bg-section">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -52,7 +52,7 @@ export function MenuPreview() {
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: "url('/images/menu-featured.jpg')",
+                backgroundImage: "url('/images/placeholder.jpeg')",
               }}
             />
           </motion.div>

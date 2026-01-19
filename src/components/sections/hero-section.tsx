@@ -16,15 +16,21 @@ export function HeroSection() {
 
   return (
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
+      {/* Background Image with Enhanced Overlay */}
       <div className="absolute inset-0">
+        {/* Background Image */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
           style={{
-            backgroundImage: "url('/images/hero.jpg')",
+            backgroundImage: "url('/images/placeholder.jpeg')",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
+        {/* Multi-layer Overlay for better readability */}
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+        {/* Radial gradient for center focus */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.3)_100%)]" />
       </div>
 
       {/* Content */}
@@ -33,7 +39,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-gold font-serif text-sm tracking-[0.3em] uppercase mb-6"
+          className="text-gold font-serif text-sm tracking-[0.3em] uppercase mb-6 drop-shadow-lg"
         >
           {heroContent.tagline}
         </motion.p>
@@ -42,8 +48,8 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="font-display text-5xl md:text-7xl lg:text-8xl xl:text-9xl mb-8 tracking-wide"
-          style={{ fontStyle: "italic" }}
+          className="font-display text-5xl md:text-7xl lg:text-8xl xl:text-9xl mb-8 tracking-wide drop-shadow-2xl"
+          style={{ fontStyle: "italic", textShadow: "0 4px 20px rgba(0,0,0,0.7)" }}
         >
           {heroContent.title}
         </motion.h1>
@@ -52,7 +58,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="font-serif text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto mb-4 leading-relaxed"
+          className="font-serif text-lg md:text-xl lg:text-2xl text-white/95 max-w-3xl mx-auto mb-4 leading-relaxed drop-shadow-lg"
         >
           {heroContent.subtitle}
         </motion.p>
@@ -61,7 +67,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="font-serif text-base md:text-lg text-white/70 max-w-2xl mx-auto mb-12 leading-relaxed"
+          className="font-serif text-base md:text-lg text-white/80 max-w-2xl mx-auto mb-12 leading-relaxed drop-shadow-md"
         >
           {heroContent.description}
         </motion.p>
@@ -83,9 +89,9 @@ export function HeroSection() {
           </Button>
           <Button
             asChild
-            variant="outline"
+            variant="outline-dark"
             size="lg"
-            className="border-white text-white hover:bg-white hover:text-foreground font-serif text-base tracking-wide px-8"
+            className="font-serif text-base tracking-wide px-8"
           >
             <Link href="/speisekarten">{heroContent.cta.secondary}</Link>
           </Button>

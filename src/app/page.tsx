@@ -1,6 +1,7 @@
 import { HeroSection } from "@/components/sections/hero-section";
 import { AboutSection } from "@/components/sections/about-section";
 import { MenuPreview } from "@/components/sections/menu-preview";
+import { RestaurantPreview } from "@/components/sections/restaurant-preview";
 import { EventsPreview } from "@/components/sections/events-preview";
 import { GalleryPreview } from "@/components/sections/gallery-preview";
 import { NewsletterSection } from "@/components/sections/newsletter-section";
@@ -12,17 +13,20 @@ export default function HomePage() {
       {/* Hero Section - Fullscreen with background image */}
       <HeroSection />
 
-      {/* About Preview Section */}
-      <AboutSection />
-
       {/* Menu Preview Section */}
       <MenuPreview />
 
-      {/* Events Preview Section */}
+      {/* Restaurant Preview Section - Bilder & Philosophie */}
+      <RestaurantPreview />
+
+      {/* Events Preview Section - Saal & Veranstaltungen */}
       <EventsPreview />
 
       {/* Gallery Preview Section */}
       <GalleryPreview />
+
+      {/* About Preview Section - Über Uns */}
+      <AboutSection />
 
       {/* Newsletter & WhatsApp Section */}
       <NewsletterSection />

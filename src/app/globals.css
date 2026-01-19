@@ -42,6 +42,19 @@
   --color-gold-light: var(--gold-light);
   --color-cream: var(--cream);
   --color-warm-gray: var(--warm-gray);
+  --color-section-bg: var(--section-background-default);
+  --color-header-bg: var(--section-background-header);
+  /* Button Tokens */
+  --color-button-primary-bg: var(--gold);
+  --color-button-primary-hover: var(--gold-light);
+  --color-button-primary-text: var(--foreground);
+  --color-button-secondary-bg: var(--secondary);
+  --color-button-secondary-hover: var(--muted);
+  --color-button-secondary-text: var(--foreground);
+  --color-button-outline-border: var(--border);
+  --color-button-outline-hover: var(--accent);
+  --color-button-outline-text: var(--foreground);
+  --color-button-outline-hover-text: var(--accent-foreground);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -52,33 +65,56 @@
 }
 
 :root {
-  --radius: 0.5rem;
+  --radius: 0.25rem;
   /* Restaurant Theme Colors - Warm, Elegant */
-  --background: #FAF8F5;
+  --background: #FFFAED;
   --foreground: #1A1A1A;
   --card: #FFFFFF;
   --card-foreground: #1A1A1A;
   --popover: #FFFFFF;
   --popover-foreground: #1A1A1A;
-  --primary: #1A1A1A;
-  --primary-foreground: #FAF8F5;
+  --primary: #C54F1F;
+  --primary-foreground: #FFFFFF;
   --secondary: #F5F3F0;
   --secondary-foreground: #1A1A1A;
   --muted: #F5F3F0;
   --muted-foreground: #6B6B6B;
-  --accent: #C9A962;
-  --accent-foreground: #1A1A1A;
+  --accent: #C54F1F;
+  --accent-foreground: #FFFFFF;
   --destructive: #DC2626;
   --border: #E8E4DE;
   --input: #E8E4DE;
-  --ring: #C9A962;
+  --ring: #C54F1F;
   /* Custom Restaurant Colors */
-  --gold: #C9A962;
-  --gold-light: #D4B978;
-  --cream: #FAF8F5;
+  --gold: #C54F1F;
+  --gold-light: #D96D3F;
+  --cream: #FFFAED;
   --warm-gray: #6B6B6B;
+  /* Section Background Tokens */
+  --section-background-default: #FFFAED; /* Beige für alle Sections */
+  --section-background-header: #FFFFFF; /* Weiß für Header */
+  /* Button Semantic Tokens */
+  --button-primary-bg: #C54F1F;
+  --button-primary-hover: #D96D3F;
+  --button-primary-text: #1A1A1A;
+  --button-secondary-bg: #F5F3F0;
+  --button-secondary-hover: #E8E4DE;
+  --button-secondary-text: #1A1A1A;
+  --button-outline-border: #1A1A1A;
+  --button-outline-hover: #C54F1F;
+  --button-outline-text: #1A1A1A;
+  --button-outline-hover-text: #FFFFFF;
+  /* Button Tokens for Dark Backgrounds (Hero) */
+  --button-outline-dark-border: #FFFFFF;
+  --button-outline-dark-text: #FFFFFF;
+  --button-outline-dark-hover-bg: #FFFFFF;
+  --button-outline-dark-hover-text: #1A1A1A;
+  /* Button Tokens for WhatsApp */
+  --button-whatsapp-bg: #25D366;
+  --button-whatsapp-hover: #1EA952;
+  --button-whatsapp-text: #FFFFFF;
   /* Chart colors */
-  --chart-1: #C9A962;
+  --chart-1: #C54F1F;
   --chart-2: #8B7355;
   --chart-3: #4A3728;
   --chart-4: #2D5A4A;
@@ -86,12 +122,12 @@
   /* Sidebar */
   --sidebar: #FFFFFF;
   --sidebar-foreground: #1A1A1A;
-  --sidebar-primary: #1A1A1A;
-  --sidebar-primary-foreground: #FAF8F5;
+  --sidebar-primary: #C54F1F;
+  --sidebar-primary-foreground: #FFFFFF;
   --sidebar-accent: #F5F3F0;
   --sidebar-accent-foreground: #1A1A1A;
   --sidebar-border: #E8E4DE;
-  --sidebar-ring: #C9A962;
+  --sidebar-ring: #C54F1F;
 }
 
 @layer base {
@@ -128,6 +164,31 @@
   }
   .border-gold {
     border-color: var(--gold);
+  }
+  /* Section Background Tokens */
+  .bg-section {
+    background-color: var(--section-background-default);
+  }
+  .bg-header {
+    background-color: var(--section-background-header);
+  }
+  
+  /* Button Token Utilities */
+  .btn-primary {
+    background-color: var(--button-primary-bg);
+    color: var(--button-primary-text);
+  }
+  .btn-primary:hover {
+    background-color: var(--button-primary-hover);
+  }
+  .btn-outline {
+    border-color: var(--button-outline-border);
+    color: var(--button-outline-text);
+  }
+  .btn-outline:hover {
+    background-color: var(--button-outline-hover);
+    color: var(--button-outline-hover-text);
+    border-color: var(--button-outline-hover);
   }
 }
 

@@ -14,7 +14,7 @@ export function EventsPageContent() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/images/events/saal.jpg')",
+            backgroundImage: "url('/images/placeholder.jpeg')",
           }}
         />
         <div className="absolute inset-0 bg-black/50" />
@@ -151,7 +151,7 @@ export function EventsPageContent() {
               <Button
                 asChild
                 size="lg"
-                className="bg-gold hover:bg-gold-light text-foreground font-serif tracking-wide"
+                className="font-serif tracking-wide"
               >
                 <a href={siteConfig.links.phone}>
                   <Phone className="w-4 h-4 mr-2" />
@@ -161,8 +161,8 @@ export function EventsPageContent() {
               <Button
                 asChild
                 size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-foreground font-serif tracking-wide"
+                variant="outline-dark"
+                className="font-serif tracking-wide"
               >
                 <a href={`mailto:${eventContact.email}`}>
                   <Mail className="w-4 h-4 mr-2" />

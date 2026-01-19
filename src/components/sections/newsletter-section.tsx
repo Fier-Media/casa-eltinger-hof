@@ -20,7 +20,7 @@ export function NewsletterSection() {
   };
 
   return (
-    <section className="py-24 lg:py-32 bg-white">
+    <section className="py-24 lg:py-32 bg-section">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
@@ -43,18 +43,19 @@ export function NewsletterSection() {
                 {footerContent.newsletter.description}
               </p>
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="flex gap-2">
+                <div className="flex gap-2 w-full">
                   <Input
                     type="email"
                     placeholder={footerContent.newsletter.placeholder}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="font-serif"
+                    className="font-serif flex-1 min-w-0"
                   />
                   <Button
                     type="submit"
-                    className="bg-foreground hover:bg-foreground/90 font-serif"
+                    variant="secondary"
+                    className="font-serif shrink-0"
                     disabled={isSubmitted}
                   >
                     {isSubmitted ? (
@@ -97,8 +98,9 @@ export function NewsletterSection() {
               </p>
               <Button
                 asChild
+                variant="whatsapp"
                 size="lg"
-                className="bg-green-600 hover:bg-green-700 text-white font-serif tracking-wide"
+                className="font-serif tracking-wide"
               >
                 <a
                   href={siteConfig.links.whatsapp}

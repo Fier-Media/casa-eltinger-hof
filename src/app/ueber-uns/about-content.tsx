@@ -38,7 +38,7 @@ export function AboutPageContent() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/images/about-hero.jpg')",
+            backgroundImage: "url('/images/placeholder.jpeg')",
           }}
         />
         <div className="absolute inset-0 bg-black/50" />
@@ -112,7 +112,7 @@ export function AboutPageContent() {
               <div
                 className="aspect-[4/5] bg-cover bg-center"
                 style={{
-                  backgroundImage: "url('/images/about-story.jpg')",
+                  backgroundImage: "url('/images/placeholder.jpeg')",
                 }}
               />
               <div className="absolute -bottom-6 -left-6 w-48 h-48 border-2 border-gold -z-10" />
@@ -218,17 +218,17 @@ export function AboutPageContent() {
               {
                 role: "Küche",
                 description: "Unser Küchenteam zaubert täglich frische mediterrane Gerichte.",
-                image: "/images/gallery/team-1.jpg",
+                image: "/images/placeholder.jpeg",
               },
               {
                 role: "Service",
                 description: "Herzliche Gastfreundschaft und aufmerksamer Service.",
-                image: "/images/gallery/team-2.jpg",
+                image: "/images/placeholder.jpeg",
               },
               {
                 role: "Leitung",
                 description: "Mit Erfahrung und Vision führen wir das Restaurant.",
-                image: "/images/team-3.jpg",
+                image: "/images/placeholder.jpeg",
               },
             ].map((member, index) => (
               <motion.div
