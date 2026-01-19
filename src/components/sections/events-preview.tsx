@@ -10,110 +10,200 @@ export function EventsPreview() {
   const featuredEvents = eventTypes.slice(0, 3);
 
   return (
-    <section className="py-24 lg:py-32 bg-section">
+    <section className="py-16 lg:py-24 bg-section">
       <div className="container mx-auto px-4 lg:px-8">
-        {/* Section Header */}
+        {/* Section Header - Kompakter */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-8 lg:mb-12"
         >
           <h2
-            className="font-display text-5xl lg:text-6xl xl:text-7xl mb-4"
+            className="font-display text-4xl lg:text-5xl xl:text-6xl mb-3"
             style={{ fontStyle: "italic" }}
           >
             Veranstaltungen
           </h2>
-          <p className="font-serif text-lg text-muted-foreground max-w-2xl mx-auto">
-            Feiern Sie Ihre besonderen Momente bei uns. Von romantischen Abenden
-            bis zu großen Festen – wir machen jeden Anlass unvergesslich.
+          <p className="font-serif text-sm lg:text-lg text-muted-foreground max-w-xl mx-auto">
+            Feiern Sie Ihre besonderen Momente bei uns – unvergesslich.
           </p>
         </motion.div>
 
-        {/* Event Types Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-16">
-          {featuredEvents.map((event, index) => (
+        {/* Mobile: Horizontal Scroll Event Cards */}
+        <div className="md:hidden">
+          <div className="horizontal-scroll mb-6">
+            {featuredEvents.map((event, index) => (
+              <motion.div
+                key={event.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="scroll-snap-item w-[280px] relative aspect-[4/3] overflow-hidden rounded-lg"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{
+                    backgroundImage: `url('${event.image}')`,
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <h3 className="font-display text-lg text-white mb-1">
+                    {event.name}
+                  </h3>
+                  <p className="font-serif text-xs text-white/70 line-clamp-2">
+                    {event.description}
+                  </p>
+                  {event.capacity && (
+                    <p className="font-serif text-xs text-gold mt-1">
+                      {event.capacity}
+                    </p>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Upcoming Events - Compact Mobile Version */}
+          {upcomingEvents.length > 0 && (
             <motion.div
-              key={event.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative aspect-[4/3] overflow-hidden cursor-pointer"
+              transition={{ duration: 0.6 }}
+              className="compact-card mb-6"
             >
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                style={{
-                  backgroundImage: `url('${event.image}')`,
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
-                <h3 className="font-display text-xl sm:text-2xl mb-2 group-hover:text-gold transition-colors">
-                  {event.name}
-                </h3>
-                <p className="font-serif text-sm text-white/70 line-clamp-2">
-                  {event.description}
-                </p>
-                {event.capacity && (
-                  <p className="font-serif text-xs text-gold mt-2">
-                    {event.capacity}
-                  </p>
-                )}
+              <h3 className="font-display text-lg mb-4 flex items-center gap-2">
+                <Calendar className="w-4 h-4 text-gold" />
+                Kommende Events
+              </h3>
+              <div className="horizontal-scroll !gap-3 !pb-0 !-mx-4 !px-4">
+                {upcomingEvents.map((event) => (
+                  <div
+                    key={event.id}
+                    className="scroll-snap-item flex-shrink-0 border-l-2 border-gold pl-3 min-w-[140px]"
+                  >
+                    <p className="text-gold font-serif text-xs mb-0.5">
+                      {event.date}
+                    </p>
+                    <h4 className="font-display text-sm mb-0.5 line-clamp-1">
+                      {event.title}
+                    </h4>
+                    <p className="font-serif text-xs text-muted-foreground">
+                      {event.time}
+                    </p>
+                  </div>
+                ))}
               </div>
             </motion.div>
-          ))}
+          )}
+
+          {/* CTA */}
+          <div className="text-center">
+            <Button
+              asChild
+              size="default"
+              className="font-serif tracking-wide group"
+            >
+              <Link href="/veranstaltungen">
+                Alle Events
+                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </div>
         </div>
 
-        {/* Upcoming Events */}
-        {upcomingEvents.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="bg-white/50 backdrop-blur-sm p-8 lg:p-12 rounded-sm border border-border"
-          >
-            <h3 className="font-display text-2xl mb-8 flex items-center gap-3">
-              <Calendar className="w-6 h-6 text-gold" />
-              Kommende Veranstaltungen
-            </h3>
-            <div className="grid md:grid-cols-3 gap-4 sm:gap-6">
-              {upcomingEvents.map((event, index) => (
+        {/* Desktop: Original Grid Layout */}
+        <div className="hidden md:block">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {featuredEvents.map((event, index) => (
+              <motion.div
+                key={event.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group relative aspect-[4/3] overflow-hidden cursor-pointer"
+              >
                 <div
-                  key={event.id}
-                  className="border-l-2 border-gold pl-3 sm:pl-4"
-                >
-                  <p className="text-gold font-serif text-sm mb-1">{event.date}</p>
-                  <h4 className="font-display text-lg mb-1">{event.title}</h4>
-                  <p className="font-serif text-sm text-muted-foreground">{event.time}</p>
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                  style={{
+                    backgroundImage: `url('${event.image}')`,
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h3 className="font-display text-2xl mb-2 group-hover:text-gold transition-colors">
+                    {event.name}
+                  </h3>
+                  <p className="font-serif text-sm text-white/70 line-clamp-2">
+                    {event.description}
+                  </p>
+                  {event.capacity && (
+                    <p className="font-serif text-xs text-gold mt-2">
+                      {event.capacity}
+                    </p>
+                  )}
                 </div>
-              ))}
-            </div>
-          </motion.div>
-        )}
+              </motion.div>
+            ))}
+          </div>
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-center mt-12"
-        >
-          <Button
-            asChild
-            size="lg"
-            className="font-serif tracking-wide group"
+          {/* Upcoming Events */}
+          {upcomingEvents.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="bg-white/50 backdrop-blur-sm p-8 lg:p-12 rounded-sm border border-border"
+            >
+              <h3 className="font-display text-2xl mb-8 flex items-center gap-3">
+                <Calendar className="w-6 h-6 text-gold" />
+                Kommende Veranstaltungen
+              </h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                {upcomingEvents.map((event) => (
+                  <div
+                    key={event.id}
+                    className="border-l-2 border-gold pl-4"
+                  >
+                    <p className="text-gold font-serif text-sm mb-1">
+                      {event.date}
+                    </p>
+                    <h4 className="font-display text-lg mb-1">{event.title}</h4>
+                    <p className="font-serif text-sm text-muted-foreground">
+                      {event.time}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-center mt-12"
           >
-            <Link href="/veranstaltungen">
-              Alle Veranstaltungen
-              <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </Button>
-        </motion.div>
+            <Button
+              asChild
+              size="lg"
+              className="font-serif tracking-wide group"
+            >
+              <Link href="/veranstaltungen">
+                Alle Veranstaltungen
+                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

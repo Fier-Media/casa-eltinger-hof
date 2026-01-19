@@ -28,9 +28,90 @@ const features = [
 
 export function RestaurantPreview() {
   return (
-    <section className="py-24 lg:py-32 bg-section">
+    <section className="py-16 lg:py-24 bg-section">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        {/* Mobile Layout - Kompakt */}
+        <div className="lg:hidden">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-6"
+          >
+            <p className="text-gold font-serif text-xs tracking-[0.3em] uppercase mb-2">
+              Unser Restaurant
+            </p>
+            <h2
+              className="font-display text-3xl mb-3"
+              style={{ fontStyle: "italic" }}
+            >
+              Mit Liebe gekocht
+            </h2>
+            <p className="font-serif text-sm text-muted-foreground leading-relaxed">
+              Im Casa Eltinger Hof verbinden wir die Wärme der mediterranen
+              Küche mit der Gastfreundschaft, die uns seit Jahrzehnten
+              auszeichnet.
+            </p>
+          </motion.div>
+
+          {/* Horizontal Scroll Feature Cards */}
+          <div className="horizontal-scroll mb-6">
+            {features.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="scroll-snap-item w-[200px] compact-card text-center"
+              >
+                <div className="w-12 h-12 mx-auto rounded-full bg-gold/10 flex items-center justify-center mb-3">
+                  <feature.icon className="w-5 h-5 text-gold" />
+                </div>
+                <h3 className="font-display text-base mb-1">{feature.title}</h3>
+                <p className="font-serif text-xs text-muted-foreground line-clamp-2">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Single Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="aspect-[16/9] rounded-lg overflow-hidden mb-6"
+          >
+            <div
+              className="w-full h-full bg-cover bg-center"
+              style={{
+                backgroundImage: "url('/images/placeholder.jpeg')",
+              }}
+            />
+          </motion.div>
+
+          {/* CTA */}
+          <div className="text-center">
+            <Button
+              asChild
+              variant="outline"
+              size="default"
+              className="group font-serif tracking-wide"
+            >
+              <Link href="/restaurant">
+                Mehr erfahren
+                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+
+        {/* Desktop Layout - Original */}
+        <div className="hidden lg:grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Content Side */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -41,15 +122,18 @@ export function RestaurantPreview() {
             <p className="text-gold font-serif text-sm tracking-[0.3em] uppercase mb-4">
               Unser Restaurant
             </p>
-            <h2 className="font-display text-4xl lg:text-5xl xl:text-6xl mb-6" style={{ fontStyle: "italic" }}>
+            <h2
+              className="font-display text-4xl lg:text-5xl xl:text-6xl mb-6"
+              style={{ fontStyle: "italic" }}
+            >
               Mit Liebe gekocht
             </h2>
             <p className="font-serif text-lg text-muted-foreground leading-relaxed mb-8">
               Im Casa Eltinger Hof verbinden wir die Wärme der mediterranen
               Küche mit der Gastfreundschaft, die uns seit Jahrzehnten
-              auszeichnet. Jedes Gericht erzählt eine Geschichte – von
-              frischen Zutaten, traditionellen Rezepten und der Leidenschaft
-              unseres Küchenteams.
+              auszeichnet. Jedes Gericht erzählt eine Geschichte – von frischen
+              Zutaten, traditionellen Rezepten und der Leidenschaft unseres
+              Küchenteams.
             </p>
 
             {/* Features */}
@@ -67,7 +151,9 @@ export function RestaurantPreview() {
                     <feature.icon className="w-5 h-5 text-gold" />
                   </div>
                   <div>
-                    <h3 className="font-display text-lg mb-1">{feature.title}</h3>
+                    <h3 className="font-display text-lg mb-1">
+                      {feature.title}
+                    </h3>
                     <p className="font-serif text-sm text-muted-foreground">
                       {feature.description}
                     </p>

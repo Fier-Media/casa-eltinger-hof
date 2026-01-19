@@ -11,36 +11,93 @@ export function MenuPreview() {
   const categories = menuCategories.slice(0, 5).map((cat) => cat.name);
 
   return (
-    <section className="py-24 lg:py-32 bg-section">
+    <section className="py-16 lg:py-24 bg-section">
       <div className="container mx-auto px-4 lg:px-8">
-        {/* Section Header */}
+        {/* Section Header - Kompakter */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-8 lg:mb-12"
         >
           <h2
-            className="font-display text-5xl lg:text-6xl xl:text-7xl mb-4"
+            className="font-display text-4xl lg:text-5xl xl:text-6xl mb-3"
             style={{ fontStyle: "italic" }}
           >
             Speisekarte
           </h2>
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 text-muted-foreground font-serif text-sm sm:text-base">
+          <div className="flex flex-wrap justify-center gap-2 text-muted-foreground font-serif text-sm">
             {categories.map((cat, index) => (
               <span key={cat} className="whitespace-nowrap">
                 {cat}
                 {index < categories.length - 1 && (
-                  <span className="ml-2 sm:ml-4 text-gold">/</span>
+                  <span className="ml-2 text-gold">/</span>
                 )}
               </span>
             ))}
           </div>
         </motion.div>
 
-        {/* Menu Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
+        {/* Mobile: Horizontal Scroll Cards */}
+        <div className="md:hidden">
+          <div className="horizontal-scroll">
+            {featuredDishes.map((dish, index) => (
+              <motion.div
+                key={dish.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="scroll-snap-item w-[260px] compact-card"
+              >
+                {/* Dish Image */}
+                <div
+                  className="h-32 -mx-4 -mt-4 mb-3 bg-cover bg-center rounded-t-lg"
+                  style={{
+                    backgroundImage: "url('/images/placeholder.jpeg')",
+                  }}
+                />
+                {/* Content */}
+                <div className="flex items-start justify-between gap-2 mb-2">
+                  <h3 className="font-display text-lg leading-tight">
+                    {dish.name}
+                  </h3>
+                  <span className="font-display text-gold whitespace-nowrap text-sm">
+                    {dish.price}
+                  </span>
+                </div>
+                <div className="flex items-center gap-1 mb-2">
+                  {dish.vegetarian && (
+                    <Leaf className="w-3.5 h-3.5 text-green-600" />
+                  )}
+                  {dish.spicy && <Flame className="w-3.5 h-3.5 text-red-500" />}
+                </div>
+                <p className="font-serif text-xs text-muted-foreground line-clamp-2">
+                  {dish.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="mt-6 text-center">
+            <Button
+              asChild
+              variant="outline"
+              size="default"
+              className="group font-serif tracking-wide"
+            >
+              <Link href="/speisekarten">
+                Zur Speisekarte
+                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+
+        {/* Desktop: Original Grid Layout */}
+        <div className="hidden md:grid lg:grid-cols-2 gap-8 lg:gap-16">
           {/* Image Column */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -58,7 +115,7 @@ export function MenuPreview() {
           </motion.div>
 
           {/* Menu Items Column */}
-          <div className="space-y-4 sm:space-y-6">
+          <div className="space-y-4">
             {featuredDishes.map((dish, index) => (
               <motion.div
                 key={dish.id}
@@ -68,22 +125,24 @@ export function MenuPreview() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="flex justify-between items-start gap-3 sm:gap-4 py-4 border-b border-border">
+                <div className="flex justify-between items-start gap-4 py-4 border-b border-border">
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1 flex-wrap">
-                      <h3 className="font-display text-lg sm:text-xl group-hover:text-gold transition-colors">
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="font-display text-xl group-hover:text-gold transition-colors">
                         {dish.name}
                       </h3>
                       {dish.vegetarian && (
                         <Leaf className="w-4 h-4 text-green-600 shrink-0" />
                       )}
-                      {dish.spicy && <Flame className="w-4 h-4 text-red-500 shrink-0" />}
+                      {dish.spicy && (
+                        <Flame className="w-4 h-4 text-red-500 shrink-0" />
+                      )}
                     </div>
                     <p className="font-serif text-sm text-muted-foreground">
                       {dish.description}
                     </p>
                   </div>
-                  <span className="font-display text-base sm:text-lg text-gold whitespace-nowrap shrink-0">
+                  <span className="font-display text-lg text-gold whitespace-nowrap shrink-0">
                     {dish.price}
                   </span>
                 </div>
@@ -99,7 +158,8 @@ export function MenuPreview() {
               className="pt-6"
             >
               <p className="font-serif text-muted-foreground mb-6">
-                Entdecken Sie unsere vollständige Speisekarte mit über 50 Gerichten...
+                Entdecken Sie unsere vollständige Speisekarte mit über 50
+                Gerichten...
               </p>
               <Button
                 asChild
